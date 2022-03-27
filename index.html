@@ -10,11 +10,26 @@
 </head>
 
 <body>
-    <a-scene>
+    <a-scene renderer="colorManagement: true">
         <a-asset-item id="gallery" src="3d/gallery_space/scene.gltf"></a-asset-item>
 
         <a-entity gltf-model="#gallery"></a-entity>
+
+        <a-entity position="0 1.5 -3.5" width="1" height="1" depth="0.001"
+            text="font: dejavu; anchor: center; width: 3; lineHeight: 50; letterSpacing: 5; color: white; value: Hi! Left click on your mouse to look around. Enjoy :)">
+        </a-entity>
+        <a-entity position="0 1 -3.5" width="1" height="1" depth="0.001"
+            text="font: dejavu; anchor: left; width: 3; lineHeight: 50; letterSpacing: 5; color: white; value: - Waad Raggam">
+        </a-entity>
     </a-scene>
 </body>
 
 </html>
+
+<!-- 
+    Suggestions
+    - Start 2d: 
+        position camera right in front of text
+        make text animate and display next part of text (controls)
+    - add boundries to walls:
+ -->
