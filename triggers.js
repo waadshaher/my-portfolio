@@ -4,9 +4,8 @@ AFRAME.registerComponent("show-text", {
         this.el.addEventListener("click", (e) => {
             let text = sceneEl.querySelector("a-text")
             setTimeout(() => {
-                // scale and show
                 text.setAttribute("visible", !text.getAttribute("visible"))
               }, 1000)
         })
     }
-})
+});

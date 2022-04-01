@@ -8,9 +8,9 @@
     <title>Waad's Gallery</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
-    <script
-        src="https://unpkg.com/aframe-animation-timeline-component@2.0.0/dist/aframe-animation-timeline-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-timeline-component@2.0.0/dist/aframe-animation-timeline-component.min.js"></script>
     <script src="triggers.js"></script>
+    <script src="dress-hair.js"></script>
 </head>
 
 <body>
@@ -18,6 +18,8 @@
         <a-asset-item id="gallery" src="3d/gallery_space/scene.gltf"></a-asset-item>
         <a-asset-item id="table" src="3d/margarita_table_brown_-_a11050/scene.gltf"></a-asset-item>
         <a-asset-item id="horse" src="3d/rocking_horse/scene.gltf"></a-asset-item>
+        <a-asset-item id="head" src="3d/anime_head/scene.gltf"></a-asset-item>
+        <a-asset-item id="pink_purple_ombre_hair" src="3d/pink_purple_ombre_hair/scene.gltf"></a-asset-item>
 
         <a-entity position="0 0 -1">
             <a-camera>
@@ -40,7 +42,10 @@
             <a-entity gltf-model="#table" scale="0.001 0.001 0.001" position="0 -0.1 0" rotation="90 0 0"></a-entity>
         </a-circle>
         <!-- bottom left -->
-        <a-circle color="#EEEEEE" rotation="-90 0 0" radius="1" position="-4 0.1 2" shader="flat"></a-circle>
+        <a-circle color="#EEEEEE" rotation="-90 0 0" radius="1" position="-4 0.1 2" shader="flat">
+            <a-entity gltf-model="#head" position="0 0 1" scale="0.1 0.1 0.1" rotation="360 90 90"></a-entity>
+            <a-entity gltf-model="#pink_purple_ombre_hair" position="0 0 2" scale="0.5 0.5 0.4" rotation="360 90 90" place-hair class=" hair-button"></a-entity>
+        </a-circle>
         <!-- bottom right -->
         <a-circle color="#EEEEEE" rotation="-90 0 0" radius="1" position="4 0.1 2" shader="flat"></a-circle>
         <!-- top right -->
