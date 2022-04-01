@@ -5,16 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waad's Portfolio</title>
+    <title>Waad's Gallery</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script
+        src="https://unpkg.com/aframe-animation-timeline-component@2.0.0/dist/aframe-animation-timeline-component.min.js"></script>
+    <script src="triggers.js"></script>
 </head>
 
 <body>
-    <a-scene renderer="colorManagement: true">
+    <a-scene renderer="colorManagement: true" cursor="rayOrigin: mouse">
         <a-asset-item id="gallery" src="3d/gallery_space/scene.gltf"></a-asset-item>
+        <a-asset-item id="table" src="3d/margarita_table_brown_-_a11050/scene.gltf"></a-asset-item>
+        <a-asset-item id="horse" src="3d/rocking_horse/scene.gltf"></a-asset-item>
 
-        <a-entity position="-4.5 0 1" rotation="0 -45 0">
+        <a-entity position="0 0 -1">
             <a-camera>
                 <a-cursor raycaster="objects: .ui"></a-cursor>
             </a-camera>
@@ -22,7 +27,6 @@
         </a-entity>
 
         <a-entity gltf-model="#gallery"></a-entity>
-
         <a-entity position="0 1.5 -3.5" width="1" height="1" depth="0.001"
             text="font: dejavu; anchor: center; width: 3; lineHeight: 50; letterSpacing: 5; color: white; value: Hi! Left click on your mouse to look around. Enjoy :)">
         </a-entity>
@@ -31,46 +35,33 @@
         </a-entity>
 
         <!-- Ground -->
-        <a-circle color = "#EEEEEE" rotation="-90 0 0" radius="1.5" position="0 0.1 1" shader="flat"></a-circle>
+        <!-- top left -->
+        <a-circle color="#EEEEEE" rotation="-90 0 0" radius="1" position="-4 0.1 -2" shader="flat">
+            <a-entity gltf-model="#table" scale="0.001 0.001 0.001" position="0 -0.1 0" rotation="90 0 0"></a-entity>
+        </a-circle>
+        <!-- bottom left -->
+        <a-circle color="#EEEEEE" rotation="-90 0 0" radius="1" position="-4 0.1 2" shader="flat"></a-circle>
+        <!-- bottom right -->
+        <a-circle color="#EEEEEE" rotation="-90 0 0" radius="1" position="4 0.1 2" shader="flat"></a-circle>
+        <!-- top right -->
+        <a-circle color="#EEEEEE" rotation="-90 0 0" radius="1" position="4 0.1 -2" shader="flat">
+            <a-entity gltf-model="#horse" scale="0.002 0.002 0.002" position="0 0 0.6" rotation="90 0 0"
+                animation="dur: 2000; easing: easeInOutSine; from: -10; to: 10; loop: -1; dir: alternate; property:object3D.rotation.z">
+            </a-entity>
+        </a-circle>
+
         <!-- Yellow box | Trigger -->
-        <a-box id="yellow" color="#FFAA00" position="0 0.5 1" class="ui" animation__enter="property: material.color; from: #FFAA00; to:#FF7700;
-        startEvents: mouseenter; dur: 250; easing: linear" 
-        animation__leave="property: material.color; from: #FF7700; to: #FFAA00;
-        startEvents: mouseleave; dur: 250; easing: linear" 
-        event-set__scale="_target: #blue; _event: click;
+        <a-box id="yellow" show-text color="#FFAA00" position="0 1.5 6" class="ui" animation__enter="property: material.color; from: #FFAA00; to:#FF7700;
+        startEvents: mouseenter; dur: 250; easing: linear" animation__leave="property: material.color; from: #FF7700; to: #FFAA00;
+        startEvents: mouseleave; dur: 250; easing: linear" event-set__scale="_target: #yellow; _event: click;
         animation.property: scale;
         animation.to: 4 2 0.1;
         animation.easing: easeInOutBack;
-        animation.dur: 1000" event-set__position="_target: #grey; _event: click;
-        animation.property: position;
-        animation.to: 0 1.75 1;
         animation.dur: 1000"></a-box>
 
-        <!-- Blue box | Morphing panel -->
-        <a-box id="blue" color="#00AAFF" position="0 3 1" opacity="1"></a-box>
-        <!-- Grey Plane | Reset/Close -->
-        <a-plane id="grey" color="#333333" position="0 3 1" scale="0.5 0.5 1" class="ui" 
-        animation__enter="property: material.color; from: #333333; to:#FF0000;
-        startEvents: mouseenter; dur: 250; easing: linear" 
-        animation__leave="property: material.color; from: #FF0000; to: #333333;
-        startEvents: mouseleave; dur: 250; easing: linear" 
-        event-set__position="_event:click;
-        animation.to: 0 3 1; 
-        animation.dur: 250" 
-        event-set__scale="_target: #blue; _event: click;
-        animation.to: 1 1 1;
-        animation.easing: easeOutExpo;
-        animation.dur: 1500"></a-plane>
+        <a-text visible="false" side="double" position="0 1.5 5.7" scale="-1 1 1"
+            text=" font: dejavu; anchor: center; width: 3; letterSpacing: 5; color: white; value: Let's create beautiful A-frame projects together \n\n\n Email: waadsraggam@gmail.com">
+        </a-text>
     </a-scene>
 </body>
-
 </html>
-
-<!-- 
-    Suggestions
-    - Start 2d: 
-        position camera right in front of text
-        make text animate and display next part of text (controls)
-    - add boundries to walls:
-    - event-set__position is where position is changed
- -->

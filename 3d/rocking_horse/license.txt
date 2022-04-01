@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rocking Horse
+* source:	https://sketchfab.com/3d-models/rocking-horse-07b5ac6cae094e61a1440e02fd7bdecc
+* author:	Horton (https://sketchfab.com/Horton)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rocking Horse" (https://sketchfab.com/3d-models/rocking-horse-07b5ac6cae094e61a1440e02fd7bdecc) by Horton (https://sketchfab.com/Horton) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
